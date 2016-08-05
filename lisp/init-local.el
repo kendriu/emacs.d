@@ -22,8 +22,7 @@
 (global-evil-leader-mode)
 (evil-leader/set-key
   "b" 'buffer-menu
-  "d" 'dired
-  "f" 'projectile-find-file
+  "d" 'projectile-find-file
   "g" 'magit-status
   "w" 'projectile-save-project-buffers
   "s" 'projectile-ag
