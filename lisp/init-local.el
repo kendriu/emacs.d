@@ -9,6 +9,9 @@
 (require-package 'powerline)
 (load-theme 'airline-solarized-alternate-gui)
 
+(desktop-save-mode 1)
+(global-linum-mode t)
+
 (require-package 'evil)
 (evil-mode t)
 
@@ -18,8 +21,12 @@
 (require-package 'evil-leader)
 (global-evil-leader-mode)
 (evil-leader/set-key
-  "d" 'projectile-find-file
   "b" 'buffer-menu
+  "d" 'dired
+  "f" 'projectile-find-file
+  "g" 'magit-status
+  "w" 'projectile-save-project-buffers
+  "s" 'projectile-ag
   "m" 'recentf-open-files)
 
 (require-package 'neotree)
@@ -89,5 +96,13 @@ is considered to be a project root."
 
 
 (setq ring-bell-function 'ignore)
+
+(require-package 'smerge-mode)
+(setq smerge-command-prefix "\C-xv")
+
+(require-package 'evil-indent-plus)
+(evil-indent-plus-default-bindings)
+
+(require-package 'go-mode)
 
 (provide 'init-local)
