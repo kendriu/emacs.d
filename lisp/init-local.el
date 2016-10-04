@@ -3,11 +3,13 @@
 (set-terminal-parameter nil 'background-mode 'dark)
 
 (require-package 'solarized-theme)
-(load-theme 'solarized-dark)
 
 (require-package 'airline-themes)
 (require-package 'powerline)
-(load-theme 'airline-solarized-alternate-gui)
+
+(load-file "~/sources/airline-themes/airline-themes.el")
+(load-theme 'airline-solarized-gui)
+(setq-default custom-enabled-themes '(solarized-dark airline-solarized-alternate-gui))
 
 (desktop-save-mode 1)
 (global-linum-mode t)
