@@ -9,6 +9,7 @@
 
 (load-file "~/sources/airline-themes/airline-themes.el")
 (load-theme 'airline-solarized-gui)
+(load-theme 'solarized-dark)
 (setq-default custom-enabled-themes '(solarized-dark airline-solarized-alternate-gui))
 
 (desktop-save-mode 1)
@@ -47,54 +48,9 @@
 (windmove-default-keybindings)
 (setq windmove-wrap-around t)
 
-(setq-default flycheck-flake8-maximum-line-length 99)
+(setq-default flycheck-flake8-maximum-line-length 160)
 (require-package 'yasnippet)
 (yas-global-mode 1)
-;; jedi
-(require-package 'virtualenvwrapper)
-(require-package 'jedi)
-(defun project-directory (buffer-name)
-  "Returns the root directory of the project that contains the
-given buffer. Any directory with a .git or .jedi file/directory
-is considered to be a project root."
-  (interactive)
-  (let ((root-dir (file-name-directory buffer-name)))
-    (while (and root-dir
-                (not (file-exists-p (concat root-dir ".git")))
-                (not (file-exists-p (concat root-dir ".jedi"))))
-      (setq root-dir
-            (if (equal root-dir "/")
-                nil
-              (file-name-directory (directory-file-name root-dir)))))
-    root-dir))
-
-(defun project-name (buffer-name)
-  "Returns the name of the project that contains the given buffer."
-  (let ((root-dir (project-directory buffer-name)))
-    (if root-dir
-        (file-name-nondirectory
-         (directory-file-name root-dir))
-      nil)))
-
-(defun jedi-setup-venv ()
-  "Activates the virtualenv of the current buffer."
-  (let ((project-name (project-name buffer-file-name)))
-    (when project-name (venv-workon project-name))))
-
-(setq jedi:complete-on-dot t)
-(add-hook 'python-mode-hook 'jedi-setup-venv)
-(add-hook 'python-mode-hook (lambda ()
-                              (hack-local-variables)
-                              (venv-workon project-venv-name)))
-(add-hook 'python-mode-hook 'jedi:setup)
-
-(require-package 'company-jedi)
-(defun my/python-mode-hook ()
-  (add-to-list 'company-backends 'company-jedi))
-
-(add-hook 'python-mode-hook 'my/python-mode-hook)
-;; end jedi
-
 
 (setq ring-bell-function 'ignore)
 
