@@ -62,7 +62,6 @@
 (define-key evil-normal-state-map (kbd "M-.") nil)
 
 (pythonic-activate "~/.virtualenvs/turbo")
-
 (require-package 'go-mode)
 
 (provide 'init-local)
