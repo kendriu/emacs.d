@@ -21,6 +21,9 @@
 (require-package 'evil-nerd-commenter)
 (evilnc-default-hotkeys)
 
+(require-package 'evil-surround)
+(global-evil-surround-mode 1)
+
 (require-package 'evil-leader)
 (global-evil-leader-mode)
 (evil-leader/set-key
@@ -53,9 +56,6 @@
 (yas-global-mode 1)
 
 (setq ring-bell-function 'ignore)
-
-(require-package 'smerge-mode)
-(setq smerge-command-prefix "\C-xv")
 
 (require-package 'evil-indent-plus)
 (evil-indent-plus-default-bindings)
