@@ -61,6 +61,15 @@
 (evil-indent-plus-default-bindings)
 (define-key evil-normal-state-map (kbd "M-.") nil)
 
+(defun run-python-once ()
+  (remove-hook 'anaconda-mode-hook 'run-python-once)
+  (switch-to-buffer (last-buffer))
+  (run-python (python-shell-parse-command))
+  (split-window-sensibly)
+  (switch-to-buffer-other-window (python-shell-get-buffer)))
+
+(add-hook 'anaconda-mode-hook 'run-python-once)
+
 (pythonic-activate "~/.virtualenvs/turbo")
 (require-package 'go-mode)
 
