@@ -28,7 +28,6 @@
 (global-evil-leader-mode)
 (evil-leader/set-key
   "b" 'ibuffer
-  "v" 'projectile-ibuffer
   "d" 'projectile-find-file
   "g" 'magit-status
   "w" 'projectile-save-project-buffers
@@ -60,6 +59,9 @@
 
 (require-package 'evil-indent-plus)
 (evil-indent-plus-default-bindings)
+(define-key evil-normal-state-map (kbd "M-.") nil)
+
+(pythonic-activate "~/.virtualenvs/turbo")
 
 (require-package 'go-mode)
 
