@@ -27,7 +27,8 @@
 (require-package 'evil-leader)
 (global-evil-leader-mode)
 (evil-leader/set-key
-  "b" 'buffer-menu
+  "b" 'ibuffer
+  "v" 'projectile-ibuffer
   "d" 'projectile-find-file
   "g" 'magit-status
   "w" 'projectile-save-project-buffers
