@@ -1,0 +1,5 @@
+# -*- mode: snippet -*-
+# name: raise_exception
+# key: rE
+# --
+raise Exception($0)
