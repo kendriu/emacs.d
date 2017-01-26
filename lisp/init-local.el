@@ -32,7 +32,8 @@
   "g" 'magit-status
   "w" 'projectile-save-project-buffers
   "s" 'projectile-ag
-  "m" 'recentf-open-files)
+  "m" 'recentf-open-files
+  "p" 'py-autopep8-enable-on-save)
 
 (require-package 'neotree)
 (global-set-key (kbd "<f2>") 'neotree-toggle)
@@ -71,6 +72,11 @@
 (add-hook 'anaconda-mode-hook 'run-python-once)
 
 (pythonic-activate "~/.virtualenvs/turbo")
+
+(require-package 'py-autopep8)
+(setq py-autopep8-options '("--max-line-length=160"))
+(add-hook 'anaconda-mode-hook 'py-autopep8-enable-on-save)
+
 (require-package 'go-mode)
 
 (provide 'init-local)
