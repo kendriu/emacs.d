@@ -1,8 +1,12 @@
 (setq custom-safe-themes t)
 (setq frame-background-mode 'dark)
 (set-terminal-parameter nil 'background-mode 'dark)
-
 (require-package 'solarized-theme)
+
+(set-face-attribute 'default t :font "Inconsolata for Powerline 13" )
+;; (set-face-attribute 'default t :font "DejaVu Sans Mono for Powerline 14" )
+;; (set-frame-font "Inconsolata for Powerline 13" nil t)
+
 
 (require-package 'airline-themes)
 (require-package 'powerline)
