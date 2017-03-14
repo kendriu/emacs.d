@@ -87,9 +87,12 @@
 (pythonic-activate "~/.virtualenvs/turbo")
 
 (require-package 'py-autopep8)
-(setq py-autopep8-options '("--max-line-length=160"))
+(setq py-autopep8-options '("--max-line-length=160" "--ignore=E309"))
 (add-hook 'anaconda-mode-hook 'py-autopep8-enable-on-save)
 
 (require-package 'go-mode)
+(add-hook 'text-mode-hook 'flyspell-mode)
+(add-hook 'prog-mode-hook 'flyspell-prog-mode)
+
 
 (provide 'init-local)
