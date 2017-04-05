@@ -31,9 +31,6 @@
 (require-package 'evil)
 (evil-mode t)
 
-(require-package 'evil-nerd-commenter)
-(evilnc-default-hotkeys)
-
 (require-package 'evil-surround)
 (global-evil-surround-mode 1)
 
@@ -62,7 +59,10 @@
 (beacon-mode 1)
 (blink-cursor-mode -1)
 
-(windmove-default-keybindings)
+(global-set-key (kbd "M-h")  'windmove-left)
+(global-set-key (kbd "M-j")  'windmove-down)
+(global-set-key (kbd "M-k")  'windmove-up)
+(global-set-key (kbd "M-l")  'windmove-right)
 (setq windmove-wrap-around t)
 
 (setq-default flycheck-flake8-maximum-line-length 160)
