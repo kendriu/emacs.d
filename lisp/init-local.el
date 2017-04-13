@@ -31,6 +31,9 @@
 (require-package 'evil)
 (evil-mode t)
 
+(require-package 'evil-nerd-commenter)
+(evilnc-default-hotkeys)
+
 (require-package 'evil-surround)
 (global-evil-surround-mode 1)
 
