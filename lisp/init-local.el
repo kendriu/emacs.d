@@ -97,6 +97,9 @@
 (add-hook 'text-mode-hook 'flyspell-mode)
 (add-hook 'prog-mode-hook 'flyspell-prog-mode)
 
+(global-prettify-symbols-mode 0)
+
+
 (setq require-final-newline t)
 
 (provide 'init-local)
